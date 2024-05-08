@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Calculator </h1>
+    <input id="first" type="text" placeholder="num1"/>
+    <input id="second" type="text" placeholder="num2"/>
+    <br><br>
+    <button id="add" onclick="addition()">Addition</button>
+    <p id="d1"></p><br><br>
+    <button id="sub" onclick="subtraction()">Subtracion</button>
+    <p id="d2"></p><br><br>
+    <button id="mult" onclick="multiplication()">Mult</button>
+    <p id="d3"></p><br><br>
+    <button id="div" onclick="division()">Division</button>
+    <p id="d4"></p><br><br>
+    <h1>Sum of array</h1>
+   <input id="Array" type="text" placeholder="Array"/><br><br>
+    <button id="Sumarr" type="button" onclick="sumarr()">generate</button><br>
+    <p id="demo"></p>
+    <h1>Interest calculator</h1>
+    <input id="Principal" type="text" placeholder="Principal"/>
+    <input id="Rate" type="text" placeholder="Rate"/>
+    <input id="Period" type="text" placeholder="Period"/><br><br>
+    <button id="Interest" onclick="interest()">Interest</button>
+    <p id="d5"></p><br><br>
+    <h1>Tax Calculator</h1>
+    <input id="Input" type="text" placeholder="Input"/>
+    <input id="Tax" type="text" placeholder="Tax"/><br><br>
+    <button id="Total" onclick="tax()">Tax calculate</button>
+    <p id="d6"></p><br><br>
+    <h1> Random Number </h1>
+    <input id="Digit" type="text" placeholder="Digit"/><br><br>
+    <button id="Generate" onclick="generate()">generate</button>
+    <p id="d7"></p><br><br>
+    <h1>Vertical sum</h1><br><br>
+    <button type="button"onclick="vert()">Vertical sum</button>
+    <p id="d8"></p>
+
+<script>
+   
+   function addition()
+    {
+        let a=parseInt(document.getElementById("first").value);
+        let b=parseInt(document.getElementById("second").value);
+        let c=a+b;
+        document.getElementById("d1").innerHTML="Sum Is:  "+ c;
+   
+    }
+function subtraction()
+    {
+        let a=parseInt(document.getElementById("first").value);
+        let b=parseInt(document.getElementById("second").value);
+        let c=a-b;
+        document.getElementById("d2").innerHTML="Difference Is:  "+ c;
+        
+    }
+    function multiplication()
+    {
+        let a=parseInt(document.getElementById("first").value);
+        let b=parseInt(document.getElementById("second").value);
+        let c=a*b;
+        document.getElementById("d3").innerHTML="Mult Is:  "+ c;
+        
+    }
+    function division()
+    {
+        let a=parseInt(document.getElementById("first").value);
+        let b=parseInt(document.getElementById("second").value);
+        let c=a/b;
+        document.getElementById("d4").innerHTML="Div Is:  "+ c;
+        
+    }
+    function tax()
+    {
+        let a=parseFloat(document.getElementById("Input").value);
+        let b=parseFloat(document.getElementById("Tax").value);
+        let c=(a*b)/100;
+        let d=c+a;
+        document.getElementById("d6").innerHTML="taxAmount: "+ c +"  totalAmount: "+ d;
+
+        
+    }
+    function interest()
+    {
+        let a=parseFloat(document.getElementById("Principal").value);
+        let b=parseFloat(document.getElementById("Rate").value);
+        let c=parseFloat(document.getElementById("Period").value);
+        let d=(a*b*c)/100;
+        let f=d+a;
+        document.getElementById("d5").innerHTML="Interest Is:  "+ d + "  Amount is: "+f;
+        
+    }
+    function generate()
+    {
+        let a=parseInt(document.getElementById("Digit").value);
+        if(a==2)
+        {
+            document.getElementById("d7").innerHTML = Math.floor(Math.random() * 90) + 10;
+        }
+        else if(a==3)
+        {
+            document.getElementById("d7").innerHTML = Math.floor(Math.random() * 900) + 100;
+        }
+    }
+    function sumarr()
+    {
+        let a=document.getElementById("Array").value;
+        let d=0;
+        const s=a.split(",");
+        for(let i=0;i<s.length;i++)
+        {
+            s[i]=parseFloat(s[i]);
+            d=d+s[i];
+        } 
+        document.getElementById("demo").innerHTML="Sum Of Array Is:  "+ d;
+    }
+  function vert()
+  {
+    const dataArray = [{ name: "Mobile", price: 30000, qty: 20 }, { name: "Laptop", price: 100000, qty: 2 }, { name: "PC", price: 200000, qty: 20 }]; 
+    let p=0;q=0;
+    dataArray.map(e=>{
+        p+=e.price;
+        q+=e.qty;
+    });
+    document.getElementById("d8").innerHTML="Sum Of price Is:"+ p +"   Sum of qyt: "+q;
+  }
+
+</script>
+</body>
+</html>
